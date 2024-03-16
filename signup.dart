@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
+import 'loginpage.dart';
 void main() {
-  runApp(MyApp());
+  runApp(Sup());
 }
 
-class MyApp extends StatelessWidget {
+class Sup extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,7 +45,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
             alignment: Alignment.centerLeft,
 
 
-              child: IconButton(onPressed: (){}, icon: Icon(Icons.arrow_back,
+              child: IconButton(onPressed: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) {
+                      return LoginScreen();
+                    }
+
+                    )
+                );
+              }, icon: Icon(Icons.arrow_back,
                 size: 30,
               color: Colors.black,)),
     ),
@@ -157,7 +166,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 if (_formKey.currentState!.validate()) {
                   _formKey.currentState!.save();
                   // TODO: Implement sign-up logic
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return LoginScreen();
+                      }
+
+                      )
+                  );
                 }
+
               },
 
               child: Text('Sign Up'),
