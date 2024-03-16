@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:MyApp/HomePage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Faqs());
 }
 
-class MyApp extends StatefulWidget {
+class Faqs extends StatefulWidget {
   @override
-  State<MyApp> createState() => _MyAppState();
+  State<Faqs> createState() => _FaqsState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _FaqsState extends State<Faqs> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -29,6 +30,11 @@ class FAQPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+              return Bustop();
+            },
+            )
+            );
             // Handle back button press
           },
         ),

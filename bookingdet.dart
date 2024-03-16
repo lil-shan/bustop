@@ -1,10 +1,16 @@
+import 'package:MyApp/HomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(Booked());
 }
 
-class MyApp extends StatelessWidget {
+class Booked extends StatefulWidget {
+  @override
+  State<Booked> createState() => _BookedState();
+}
+
+class _BookedState extends State<Booked> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,7 +25,20 @@ class MyApp extends StatelessWidget {
           preferredSize: Size.fromHeight(100), // Adjust the height as needed
           child: AppBar(
             title: Center(child: Text('Booking Details', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))),
-            backgroundColor: Color.fromRGBO(253, 253, 177, 1), // Apply primary color to app bar
+            backgroundColor: Color.fromRGBO(253, 253, 177, 1),
+          leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+    // Navigate back to the first page
+            Navigator.push(context, MaterialPageRoute(builder: (context)
+            {
+              return Bustop();
+            }
+            )
+            );
+    },
+
+          ),// Apply primary color to app bar
           ),
         ),
         body: Padding(

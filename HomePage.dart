@@ -1,7 +1,13 @@
-
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:MyApp/faqs.dart';
+import 'package:flutter/cupertino.dart';
+
+import 'bookingdet.dart';
+import 'pastbook.dart';
+import 'findmybus.dart';
+import 'findmybus2.dart';
+import 'findmybus3.dart';
+import 'ticket.dart.dart';
 
 
 void main(){
@@ -11,12 +17,12 @@ class Bustop extends StatefulWidget {
   const Bustop({super.key});
 
   @override
-  State<Bustop> createState() => _MyAppState();
+  State<Bustop> createState() => _BustopState();
 }
 
-class _MyAppState extends State<Bustop> {
+class _BustopState extends State<Bustop> {
 
-  @override
+
 
 
   TextEditingController from = TextEditingController();
@@ -27,6 +33,31 @@ class _MyAppState extends State<Bustop> {
     setState(() {
       _storefrom = from.text;
       _storeto = to.text;
+      if(from.text == 'Ernakulam' && to.text=='Aluva') {
+        Navigator.push(context, MaterialPageRoute(builder: (context)
+        {
+          return findmybus1();
+        }
+        )
+        );
+      }
+      else if(from.text == 'Ernakulam' && to.text=='Alappuzha') {
+        Navigator.push(context, MaterialPageRoute(builder: (context)
+        {
+          return findmybus2();
+        }
+        )
+        );
+      }
+      if(from.text == 'Ernakulam' && to.text=='Kollam') {
+        Navigator.push(context, MaterialPageRoute(builder: (context)
+        {
+          return findmybus3();
+        }
+        )
+        );
+      }
+
     });
   }
 
@@ -101,7 +132,13 @@ class _MyAppState extends State<Bustop> {
                       letterSpacing: 3
                   ),
                 ),
-                onTap: (){},
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return ticket();
+                  }
+                  )
+                  );
+                },
               ),
                 ListTile(
                   title: Text('Past Trips',
@@ -111,7 +148,13 @@ class _MyAppState extends State<Bustop> {
                         letterSpacing: 3,
                     ),
                   ),
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                      return past();
+                    }
+                    )
+                    );
+                  },
                 ),
                 ListTile(
                   title: Text('Help',
@@ -119,7 +162,14 @@ class _MyAppState extends State<Bustop> {
                         fontWeight: FontWeight.bold,
                         height: 2.5),
                   ),
-                  onTap: (){},
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)
+                    {
+                      return Faqs();
+                    }
+                    )
+                    );
+                  },
                 ),
                 ListTile(
                   title: Text('Settings',
@@ -172,6 +222,7 @@ class _MyAppState extends State<Bustop> {
                 SizedBox(height: 20,),
                 ElevatedButton(
                   onPressed:(){
+
                     _storeText();
 
 

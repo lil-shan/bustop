@@ -1,3 +1,4 @@
+import 'package:MyApp/HomePage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -22,12 +23,22 @@ class BusScheduleScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(173, 30, 65, 1),
-        leading: Icon(Icons.arrow_back),
+        leading: IconButton(
+    icon: Icon(Icons.arrow_back),
+          onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context)
+            {
+              return Bustop();
+            }));
+          },
+        ),
+
         title: Text('Ernakulam - Aluva'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.filter_list),
             onPressed: () {
+
               // Implement filter action
             },
           ),

@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:MyApp/HomePage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(ticket());
 }
 
-class MyApp extends StatelessWidget {
+class ticket extends StatefulWidget {
+  @override
+  State<ticket> createState() => _ticketState();
+}
+
+class _ticketState extends State<ticket> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -16,7 +22,16 @@ class MyApp extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Booking Details'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)
+              {
+                return Bustop();
+              }));
+            },
+          ),
+          title: Text('Booking Details',textAlign: TextAlign.center,),
           backgroundColor: Color.fromRGBO(173, 30, 65, 1),
         ),
         body: Padding(
@@ -122,6 +137,10 @@ class MyApp extends StatelessWidget {
                             fontSize: 20, // Increased font size
                           ),
                         ),
+                        IconButton(
+                          icon: Icon(Icons.remove),
+                          onPressed: () {},
+                        ),
                         Text(
                           '0',
                           style: TextStyle(
@@ -130,6 +149,7 @@ class MyApp extends StatelessWidget {
                             fontSize: 20, // Increased font size
                           ),
                         ),
+
                       ],
                     ),
                     SizedBox(height: 16),
@@ -143,6 +163,10 @@ class MyApp extends StatelessWidget {
                             fontWeight: FontWeight.w700,
                             fontSize: 20, // Increased font size
                           ),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.remove),
+                          onPressed: () {},
                         ),
                         Text(
                           '0',

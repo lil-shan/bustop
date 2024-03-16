@@ -1,4 +1,6 @@
 
+import 'package:MyApp/HomePage.dart';
+import 'package:MyApp/bookingdet.dart';
 import 'package:MyApp/signup.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -42,7 +44,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void _validateFields() {
     setState(() {
       // Email validation check
-      _isValidEmail = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(_emailController.text);
+      _isValidEmail = RegExp(r'^[\w-/.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(_emailController.text);
 
       // Password validation check (at least 6 characters)
       _isValidPassword = _passwordController.text.length >= 6;
@@ -52,6 +54,12 @@ class _LoginScreenState extends State<LoginScreen> {
         // Add your logic here
         print('Email: ${_emailController.text}');
         print('Password: ${_passwordController.text}');
+        Navigator.push(context, MaterialPageRoute(builder: (context)
+        {
+          return Bustop();
+        }
+        )
+        );
       }
     });
   }
