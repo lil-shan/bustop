@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:MyApp/faqs.dart';
 import 'package:flutter/cupertino.dart';
+import 'myprofile.dart';
 
 import 'bookingdet.dart';
 import 'pastbook.dart';
@@ -33,7 +34,8 @@ class _BustopState extends State<Bustop> {
     setState(() {
       _storefrom = from.text;
       _storeto = to.text;
-      if(from.text == 'Ernakulam' && to.text=='Aluva') {
+
+      if(from.text == 'ernakulam' && to=='aluva') {
         Navigator.push(context, MaterialPageRoute(builder: (context)
         {
           return findmybus1();
@@ -41,7 +43,7 @@ class _BustopState extends State<Bustop> {
         )
         );
       }
-      else if(from.text == 'Ernakulam' && to.text=='Alappuzha') {
+      else if(from.text == 'ernakulam' && to.text=='alappuzha') {
         Navigator.push(context, MaterialPageRoute(builder: (context)
         {
           return findmybus2();
@@ -49,7 +51,7 @@ class _BustopState extends State<Bustop> {
         )
         );
       }
-      if(from.text == 'Ernakulam' && to.text=='Kollam') {
+      if(from.text == 'ernakulam' && to.text=='kollam') {
         Navigator.push(context, MaterialPageRoute(builder: (context)
         {
           return findmybus3();
@@ -121,7 +123,14 @@ class _BustopState extends State<Bustop> {
                   letterSpacing: 3
                   ),
                 ),
-                onTap: (){},
+                onTap: (){
+
+                  Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return mypro();
+                  }
+                  )
+                  );
+                },
             ),
 
               ListTile(

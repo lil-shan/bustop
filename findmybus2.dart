@@ -55,6 +55,7 @@ class BusScheduleScreen extends StatelessWidget {
             ),
             trailing: ElevatedButton(
               style: ButtonStyle(
+
                 backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(173, 30, 65, 1)), // Change button background color
                 textStyle: MaterialStateProperty.all<TextStyle>(
                   TextStyle(color: Colors.white), // Change text color here
