@@ -19,13 +19,16 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Color.fromRGBO(173, 30, 65,1),
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {},
           ),
           title: Text(
             'Payment Page',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: TextStyle(color: Colors.white,
+                fontWeight: FontWeight.bold)
+            ,
           ),
         ),
         body: SingleChildScrollView( // Allow scrolling for long content
