@@ -1,236 +1,195 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MyApp());
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
 }
 
-class MyApp extends StatelessWidget {
+class _MyAppState extends State<MyApp> {
+  // Define variables to hold values (replace with actual data fetching)
+  final int adultCount = 1;
+  final int childCount = 2;
+  final int studentCount = 0;
+  final double totalAmount = 120.0;
+  String selectedPaymentMethod = ''; // Initially no selection
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Colors.white, // Replace with your primary color
-        textTheme: TextTheme(
-          bodyText1: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16), // Text color
-        ),
-      ),
       home: Scaffold(
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(100), // Adjust the height as needed
-          child: AppBar(
-            title: Center(child: Text('Booking Details', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20))),
-            backgroundColor: Color.fromRGBO(253, 253, 177, 1), // Apply primary color to app bar
+        appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {},
+          ),
+          title: Text(
+            'Payment Page',
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
         ),
-        body: Padding(
-          padding: const EdgeInsets.all(26.0),
+        body: SingleChildScrollView( // Allow scrolling for long content
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Your widget tree continues here
-              // Bus Details
+              SizedBox(height: 30,),// Row for Adult and its count
               Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBox(width: 40), // Adjust the space from the left
                   Text(
-                    'Bus No:',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 18,
-                    ), // Bold text
-                  ),
-                  Text('KA19 8765',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 18,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-
-              // Origin and Destination
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Ernakulam',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                    ), // Teal color for city
-                  ),
-                  Text('To',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                    ),
-                  ),
-                  Text(
-                    'Aluva',
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 18,
-                    ), // Teal color for city
-                  ),
-                ],
-              ),
-              SizedBox(height: 30),
-
-              // Schedule
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('09:00 AM',
+                    'Adult',
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 20, // Increase font size by 2
                     ),
                   ),
-
-                  Text('02:00 PM',
+                  Spacer(),
+                  Text(
+                    '$adultCount',
                     style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20,
+                      fontSize: 20, // Increase font size by 2
                     ),
-                  ),
+                  ), // Display actual count
+                  SizedBox(width: 40), // Adjust the space from the right
                 ],
               ),
-              SizedBox(height: 40),
 
-              // Passenger Information
-              Center(
-                child: Text(
-                  'Passenger Information',
+              SizedBox(height: 20),
+
+              // Row for Children and its count
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(width: 40), // Adjust the space from the left
+                  Text(
+                    'Children',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20, // Increase font size by 2
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    '$childCount',
+                    style: TextStyle(
+                      fontSize: 20, // Increase font size by 2
+                    ),
+                  ), // Display actual count
+                  SizedBox(width: 40), // Adjust the space from the right
+                ],
+              ),
+
+              SizedBox(height: 20),
+
+              // Row for Student and its count
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(width: 40), // Adjust the space from the left
+                  Text(
+                    'Student',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 20, // Increase font size by 2
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    '$studentCount',
+                    style: TextStyle(
+                      fontSize: 20, // Increase font size by 2
+                    ),
+                  ), // Display actual count
+                  SizedBox(width: 40), // Adjust the space from the right
+                ],
+              ),
+
+              SizedBox(height: 20),
+
+              // ListTile for Total amount
+              ListTile(
+                title: Text(
+                  'Total amount',
                   style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 22,
-                  ), // Bold text
+                    fontWeight: FontWeight.w900,
+                    fontSize: 20, // Increase font size by 2
+                  ),
                 ),
+                trailing: Text(
+                  '$totalAmount',
+                  style: TextStyle(
+                    fontSize: 20, // Increase font size by 2
+                  ),
+                ), // Display actual amount
               ),
-              SizedBox(height: 30),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Adult(s)',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  Text(
-                    ' ₹100',
-                    style: TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 100),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    ), // Teal color for price
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Children',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  Text(
-                    ' ₹0',
-                    style: TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 100),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    ), // Teal color for price
-                  ),
-                ],
-              ),
-              SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Student(s)',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
-                  ),
-                  Text(
-                    ' ₹0',
-                    style: TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 100),
-                      fontWeight: FontWeight.w600,
-                      fontSize: 20,
-                    ), // Teal color for price
-                  ),
-                ],
-              ),
-              SizedBox(height: 40),
 
-              // Total Amount
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'Total Amount:',
-                    style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      fontSize: 22,
-                    ), // Bold text
+              // RadioListTile for Payment Options
+              RadioListTile<String>(
+                title: Text(
+                  'Google Pay',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20, // Increase font size by 2
                   ),
-                  Text(
-                    '₹100',
-                    style: TextStyle(
-                      color: Color.fromRGBO(0, 0, 0, 100),
-                      fontWeight: FontWeight.w900,
-                      fontSize: 24,
-                    ), // Teal color for price
-                  ),
-                ],
+                ),
+                value: 'google_pay',
+                groupValue: selectedPaymentMethod, // Track selection
+                onChanged: (value) =>
+                    setState(() => selectedPaymentMethod = value!),
               ),
-              SizedBox(height: 30),
+              RadioListTile<String>(
+                title: Text(
+                  'PhonePe',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20, // Increase font size by 2
+                  ),
+                ),
+                value: 'phonepe',
+                groupValue: selectedPaymentMethod, // Track selection
+                onChanged: (value) =>
+                    setState(() => selectedPaymentMethod = value!),
+              ),
+              RadioListTile<String>(
+                title: Text(
+                  'Paytm',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w800,
+                    fontSize: 20, // Increase font size by 2
+                  ),
+                ),
+                value: 'paytm',
+                groupValue: selectedPaymentMethod, // Track selection
+                onChanged: (value) =>
+                    setState(() => selectedPaymentMethod = value!),
+              ),
 
-              // Track and Pay Buttons
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(173, 30, 65, 1)),
-                        textStyle: MaterialStateProperty.all<TextStyle>(
-                          TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        ),
-                        minimumSize: MaterialStateProperty.all<Size>(
-                          Size(double.infinity, 0),
-                        ),
+              // Implement logic for Pay Now button based on selection
+              ElevatedButton(
+                onPressed: () {
+                  if (selectedPaymentMethod.isEmpty) {
+                    // Show error message if no payment method selected
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text('Please select a payment method'),
                       ),
-                      child: Text('Track the bus'),
-                    ),
-                    SizedBox(height: 10),
-                    ElevatedButton(
-                      onPressed: () {},
-                      style: ButtonStyle(
-                        backgroundColor: MaterialStateProperty.all<Color>(Color.fromRGBO(173, 30, 65, 1)),
-                        textStyle: MaterialStateProperty.all<TextStyle>(
-                          TextStyle( fontWeight: FontWeight.bold, fontSize: 20),
-                        ),
-                        padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-                          EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-                        ),
-                        minimumSize: MaterialStateProperty.all<Size>(
-                          Size(double.infinity, 0),
-                        ),
-                      ),
-                      child: Text('Pay 120Rs using UPI'),
-                    ),
-                  ],
+                    );
+                  } else {
+                    // Handle payment processing based on selectedPaymentMethod
+                    // (replace with your actual payment processing logic)
+                    print('Processing payment using $selectedPaymentMethod');
+                  }
+                },
+                child: Text(
+                  'Pay Now',
+                  style: TextStyle(
+                    color: Colors.white,
+                    backgroundColor: Color.fromRGBO(173, 30, 65, 1),
+                    fontSize: 20, // Increase font size by 2
+                  ),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color.fromRGBO(173, 30, 65, 1)
                 ),
               ),
             ],
@@ -239,4 +198,8 @@ class MyApp extends StatelessWidget {
       ),
     );
   }
+}
+
+void main() {
+  runApp(MyApp());
 }
